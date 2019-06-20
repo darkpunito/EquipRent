@@ -16,6 +16,14 @@ namespace EquipRent.WebApplication.Helpers.AutoMapperProfiles
         {
             CreateMap<Entities.Model, DTO.ModelDTO>().ReverseMap();
             CreateMap<DTO.ModelDTO, ViewModels.ModelViewModel>().ReverseMap();
+            CreateMap<Entities.Equipment, DTO.EquipmentDTO>().ReverseMap();
+            CreateMap<DTO.EquipmentDTO, ViewModels.HireEquipmentViewModel>().ReverseMap();
+            CreateMap<DTO.EquipmentDTO, ViewModels.EquipmentViewModel>().ReverseMap();
+
+            CreateMap<Entities.Hire, DTO.HireDTO>().ReverseMap();
+            CreateMap<DTO.HireDTO, ViewModels.EquipmentViewModel>().ReverseMap();
+
+            //to do map to view model for equipments
 
             CreateMap<int, SelectListItem>()
                 .ForMember(
