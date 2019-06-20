@@ -62,7 +62,7 @@ namespace EquipRent.WebApplication.Controllers
             {
                 hireEquipmentService.hireEquipment(model.SelectEquipment, currentUser);
                 //bookTableService.ReserveTable(tableId, startDate, endDate, currentUser);
-                TempData["message"] = "Udało się zarezerwować stolik";
+                TempData["message"] = "Udało się zarezerwować sprzet";
             }
             catch (Exception e)
             {
@@ -70,25 +70,6 @@ namespace EquipRent.WebApplication.Controllers
             }
 
             return RedirectToAction("Index");
-        }
-        
-        //public ActionResult HireEquipment(int equipmentId, string someString)
-        //{
-        //    var currentUser = authenticationUserManager.Users.First(x => x.Id == User.Identity.GetUserId());
-
-        //    try
-        //    {
-        //        hireEquipmentService.hireEquipment(equipmentId, currentUser);
-        //        //bookTableService.ReserveTable(tableId, startDate, endDate, currentUser);
-        //        TempData["message"] = "Udało się zarezerwować stolik";
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        TempData["error"] = "Błąd przy zapisie rezerwacji";
-        //    }
-
-        //    return RedirectToAction("Index");
-        //}
-        
+        }       
     }
 }

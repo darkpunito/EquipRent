@@ -16,19 +16,32 @@
     <tbody>
         @foreach (var reservation in Model.Equipment)
         {
-        <tr>
+            <tr>
 
-            <td class="col-sm-3">@reservation.Id</td>
-            <td class="col-sm-4">@reservation.Status</td>
-            <td class="col-sm-4">@reservation.Equipment.Model.Name</td>
-            <td class="col-sm-4">
-                @using (Html.BeginForm("CancelReservation", "Reservation", new { reservationId = reservation.Id }))
-                {
-                    <input class="btn btn-default" type="submit" value="Anuluj" />
-                }
+                <td class="col-sm-3">@reservation.Id</td>
+                <td class="col-sm-4">@reservation.Status</td>
+                <td class="col-sm-4">@reservation.Equipment.Model.Name</td>
+                <td class="col-sm-4">
+                    @using (Html.BeginForm("CancelReservation", "Reservation", new { reservationId = reservation.Id }))
+                    {
+                        <input class="btn btn-default" type="submit" value="Anuluj" />
+                    }
                 </td>
-        </tr>
+            </tr>
         }
     </tbody>
 </table>
+@section Scripts {
 
+    <script src="~/Scripts/toastr.min.js"></script>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+
+    @if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">toastr.success("@TempData["Message"]");</script>
+    }
+    @if (TempData["error"] != null)
+    {
+        <script type="text/javascript">toastr.error("@TempData["error"]");</script>
+    }
+}

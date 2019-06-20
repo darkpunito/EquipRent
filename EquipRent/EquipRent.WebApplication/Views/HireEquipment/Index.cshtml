@@ -5,30 +5,44 @@
 }
 
 
-        <table class="table table-condensed" style="margin: 20px">
-            <thead>
-                <tr>
-                    <th class="col-sm-3">Id</th>
-                    <th class="col-sm-3">Nazwa</th>
-                    <th class="col-sm-3">Opis</th>
-                    <th class="col-sm-3">Ilosc dostepnych sprzetow</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var modelequipments in Model)
-                {
-                <tr>
-                    <td class="col-sm-3">@modelequipments.Id</td>
-                    <td class="col-sm-3">@modelequipments.Name</td>
-                    <td class="col-sm-3">@modelequipments.Description</td>
-                    <td class="col-sm-3">@modelequipments.NumberOfEquipments</td>
-                    <td class="col-sm-4">
-                        @using (Html.BeginForm("Index", "HireEquipment", new { modelId = modelequipments.Id}))
-                        {
-                            <input class="btn btn-default" type="submit" value="Rezerwuj" />
-                        }
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
+<table class="table table-condensed" style="margin: 20px">
+    <thead>
+        <tr>
+            <th class="col-sm-3">Id</th>
+            <th class="col-sm-3">Nazwa</th>
+            <th class="col-sm-3">Opis</th>
+            <th class="col-sm-3">Ilosc dostepnych sprzetow</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var modelequipments in Model)
+        {
+            <tr>
+                <td class="col-sm-3">@modelequipments.Id</td>
+                <td class="col-sm-3">@modelequipments.Name</td>
+                <td class="col-sm-3">@modelequipments.Description</td>
+                <td class="col-sm-3">@modelequipments.NumberOfEquipments</td>
+                <td class="col-sm-4">
+                    @using (Html.BeginForm("Index", "HireEquipment", new { modelId = modelequipments.Id }))
+                    {
+                        <input class="btn btn-default" type="submit" value="Rezerwuj" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+
+    <script src="~/Scripts/toastr.min.js"></script>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+
+    @if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">toastr.success("@TempData["Message"]");</script>
+    }
+    @if (TempData["error"] != null)
+    {
+        <script type="text/javascript">toastr.error("@TempData["error"]");</script>
+    }
+}
