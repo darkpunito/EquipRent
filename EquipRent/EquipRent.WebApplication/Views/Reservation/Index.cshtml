@@ -1,0 +1,34 @@
+﻿@model EquipRent.WebApplication.Models.ReservationViewModel
+
+@{
+    ViewBag.Title = "Reservations";
+}
+
+<table class="table table-condensed" style="margin: 20px">
+    <thead>
+        <tr>
+            <th class="col-sm-3">Id</th>
+            <th class="col-sm-3">Nazwa</th>
+            <th class="col-sm-3">Opis</th>
+            <th class="col-sm-3">Ilosc dostepnych sprzetow</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model.Equipment)
+        {
+        <tr>
+
+            <td class="col-sm-3">@reservation.Id</td>
+            <td class="col-sm-4">@reservation.Status</td>
+            <td class="col-sm-4">@reservation.Equipment.Model.Name</td>
+            <td class="col-sm-4">
+                @using (Html.BeginForm("CancelReservation", "Reservation", new { reservationId = reservation.Id }))
+                {
+                    <input class="btn btn-default" type="submit" value="Anuluj" />
+                }
+                </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

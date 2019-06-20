@@ -1,0 +1,56 @@
+﻿@model  EquipRent.WebApplication.Models.HireEquipmentViewModel
+
+@{
+    ViewBag.Title = "HireEquipment";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div style="margin: 20px">
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectEquipment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectEquipment, Model.EquipmentOptions, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectEquipment, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label(Model.Model.Name)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label(Model.Model.Description)
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-default" type="submit" value="Rezerwuj" />
+        </div>
+    </div>
+
+}
+@section Scripts {
+
+    <script src="~/Scripts/toastr.min.js"></script>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+
+    @if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">toastr.success("@TempData["Message"]");</script>
+    }
+    @if (TempData["error"] != null)
+    {
+        <script type="text/javascript">toastr.error("@TempData["error"]");</script>
+    }
+
+
+
+
+
