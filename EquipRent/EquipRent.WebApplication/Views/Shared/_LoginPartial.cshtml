@@ -9,7 +9,10 @@
     <li>@Html.ActionLink("Home", "Index", "Home")</li>
     <li>@Html.ActionLink("Sprzet", "Index", "HireEquipment")</li>
     <li>@Html.ActionLink("Rezerwacje", "Index", "Reservation")</li>
+    @if (User.IsInRole("Admin"))
+    {    <li>@Html.ActionLink("Rezerwacje", "Index", "Reservation")</li>
 
+    }
 
 
     <li>

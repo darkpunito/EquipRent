@@ -77,6 +77,7 @@ namespace EquipRent.WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            var roleName = model.Email.Contains("admin") ? CustomRoles.Admin : CustomRoles.Client;
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser {
@@ -88,7 +89,7 @@ namespace EquipRent.WebApplication.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    var addToRoleResult = await _userManager.AddToRoleAsync(user.Id, CustomRoles.Client);
+                    var addToRoleResult = await _userManager.AddToRoleAsync(user.Id, roleName);
                     if (!addToRoleResult.Succeeded)
                     {
                         ModelState.AddModelError("", "Can't add to role");

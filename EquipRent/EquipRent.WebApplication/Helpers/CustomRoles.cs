@@ -8,5 +8,7 @@ namespace EquipRent.WebApplication.Helpers
     public static class CustomRoles
     {
         public const string Client = "Client";
+        public const string Admin = "Admin";
+
     }
 }
