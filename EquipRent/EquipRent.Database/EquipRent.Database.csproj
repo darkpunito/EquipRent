@@ -92,11 +92,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Equipment.cs" />
+    <Compile Include="Entities\Hire.cs" />
     <Compile Include="Entities\Model.cs" />
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Mappings\EquipmentMap.cs" />
+    <Compile Include="Mappings\HireMap.cs" />
     <Compile Include="Mappings\ModelMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Abstract\IEquipmentRepository.cs" />
+    <Compile Include="Repositories\Abstract\IHireRepository.cs" />
     <Compile Include="Repositories\Abstract\IModelRepository.cs" />
+    <Compile Include="Repositories\Concrete\EquipmentRepository.cs" />
+    <Compile Include="Repositories\Concrete\HireRepository.cs" />
     <Compile Include="Repositories\Concrete\ModelRepository.cs" />
     <Compile Include="EquipRentSessionFactory.cs" />
   </ItemGroup>
