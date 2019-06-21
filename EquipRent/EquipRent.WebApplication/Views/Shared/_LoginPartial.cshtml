@@ -7,10 +7,14 @@
         @Html.AntiForgeryToken()
 <ul class="nav navbar-nav navbar-right">
     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Sprzet", "Index", "HireEquipment")</li>
-    <li>@Html.ActionLink("Rezerwacje", "Index", "Reservation")</li>
+    @if (User.IsInRole("Client"))
+    {
+        <li>@Html.ActionLink("Sprzet", "Index", "HireEquipment")</li>
+        <li>@Html.ActionLink("Rezerwacje", "Index", "Reservation")</li>
+    }
     @if (User.IsInRole("Admin"))
-    {    <li>@Html.ActionLink("Rezerwacje", "Index", "Reservation")</li>
+    {
+        <li>@Html.ActionLink("Rezerwacje", "Index", "ManagementReservation")</li>
 
     }
 

@@ -15,5 +15,6 @@ namespace EquipRent.Domain.Services.Abstract
         void hireEquipment(int equipmentId, ApplicationUser userId);
         IList<HireDTO> GetHires();
         void CancelReservation(int reservationId);
+        void EditReservation(int reservationId, string selectedStatus);
     }
 }

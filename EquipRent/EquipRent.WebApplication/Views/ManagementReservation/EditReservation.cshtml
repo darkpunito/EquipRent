@@ -1,0 +1,35 @@
+﻿@model EquipRent.WebApplication.Models.HireViewModel
+
+@{
+    ViewBag.Title = "Hire Manager";
+}
+
+@using (Html.BeginForm("ConfirmReservation", "ManagementReservation", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Model.Hire
+    @Html.HiddenFor(model => model.Hire.Id)
+    <div style="margin: 20px">
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedStatus, Model.StateSelections, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hire.Equipment.Model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label(Model.Hire.Equipment.Model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Zatwierdz" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}

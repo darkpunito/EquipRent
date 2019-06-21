@@ -34,6 +34,15 @@ namespace EquipRent.WebApplication.Helpers.AutoMapperProfiles
                     dest => dest.Text,
                     opt => opt.MapFrom(src => src)
                 );
+            CreateMap<string, SelectListItem>()
+                .ForMember(
+                    dest => dest.Value,
+                    opt => opt.MapFrom(src => src)
+                )
+                .ForMember(
+                    dest => dest.Text,
+                    opt => opt.MapFrom(src => src)
+                );
         }
     }
 }

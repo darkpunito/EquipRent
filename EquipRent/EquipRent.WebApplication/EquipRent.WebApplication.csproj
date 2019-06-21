@@ -222,6 +222,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HireEquipmentController.cs" />
+    <Compile Include="Controllers\ManagementReservationController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Models\EquipmentViewModel.cs" />
     <Compile Include="Models\HireEquipmentViewModel.cs" />
@@ -234,6 +235,8 @@
     <Compile Include="Helpers\CustomRoles.cs" />
     <Compile Include="Models\Authorization\LoginViewModel.cs" />
     <Compile Include="Models\Authorization\RegisterViewModel.cs" />
+    <Compile Include="Models\HireViewModel.cs" />
+    <Compile Include="Models\ManagementReservationViewModel.cs" />
     <Compile Include="Models\ModelFormViewModel.cs" />
     <Compile Include="Models\ModelViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
@@ -389,6 +392,8 @@
     <Content Include="Views\HireEquipment\Index.cshtml" />
     <Content Include="Views\HireEquipment\GetEquipment.cshtml" />
     <Content Include="Views\Reservation\Index.cshtml" />
+    <Content Include="Views\ManagementReservation\Index.cshtml" />
+    <Content Include="Views\ManagementReservation\EditReservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

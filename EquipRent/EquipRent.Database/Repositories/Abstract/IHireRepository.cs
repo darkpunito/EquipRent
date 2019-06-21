@@ -9,5 +9,6 @@ namespace EquipRent.Database.Repositories.Abstract
         IList<Hire> GetHires();
         void HireEquipment(int equipmentId, ApplicationUser currentUser);
         void CancelReservation(int reservationId);
+        void EditReservation(int id, string selectedStatus);
     }
 }

@@ -22,6 +22,7 @@ namespace EquipRent.WebApplication.Controllers
             this.hireEquipmentService = hireEquipmentService;
             this.authenticationUserManager = authenticationUserManager;
         }
+
         // GET: Reservation
         public ActionResult Index()
         {
@@ -50,5 +51,6 @@ namespace EquipRent.WebApplication.Controllers
             }
             return RedirectToAction("Index");
         }
+
     }
 }

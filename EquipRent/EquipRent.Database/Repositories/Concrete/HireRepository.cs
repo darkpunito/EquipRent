@@ -65,5 +65,17 @@ namespace EquipRent.Database.Repositories.Concrete
                 }               
             }
         }
+
+        public void EditReservation(int reservationId, string selectedStatus)
+        {
+            using (ISession session = _sessionFactory.OpenSession())
+            {
+
+                var hireToEdit = session.Query<Hire>().First(x => x.Id == reservationId);
+                hireToEdit.Status = selectedStatus;
+                session.Update(hireToEdit);
+                session.Flush();
+            }
+        }
     }   
 }

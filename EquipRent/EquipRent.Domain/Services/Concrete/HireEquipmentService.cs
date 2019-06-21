@@ -29,6 +29,11 @@ namespace EquipRent.Domain.Services.Concrete
             hireRepository.CancelReservation(reservationId);
         }
 
+        public void EditReservation(int reservationId, string selectedStatus)
+        {
+            hireRepository.EditReservation(reservationId, selectedStatus);
+        }
+
         public IList<EquipmentDTO> GetEquipments(int modelId)
         {
             var equipmentsForModel = equipmentRepository.GetEquipments(modelId);
